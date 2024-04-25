@@ -49,9 +49,9 @@ class ComentarioRepository implements Repository{
             $comentario->setPostagemId($row->postagem_id);
             $comentario->setUsuarioId($row->usuario_id);
             $comentario->setDataInclusao($row->data_inclusao);
-            $list[] = $comentario;
+            return $comentario;
         }
-        return $list;
+        return null;
     }   
     public static function update($obj){
         // vazio, comentario não pode ser excluido
