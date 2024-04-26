@@ -1,0 +1,40 @@
+
+main{
+    margin: auto;
+    margin-top: 5vh;
+    width: 80vw;
+}
+
+.hedPerfil{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 35%;
+}
+.ftName{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.nome{
+    font-size: 2em;
+    font-weight: bold;
+}
+.editarSvg{
+    width: 25px;
+    color: rgb(34, 34, 34);
+}
+.fotoPerfil{
+    width: 70px;
+}
+.bioPerfil{
+    margin-top: 2vh;
+}
+.bioPerfil h3{
+    font-size: 1.5em;
+    font-weight: bold
+}
+.bioPerfil p{
+    font-size: 1.2em;
+    width: 70%;
+}

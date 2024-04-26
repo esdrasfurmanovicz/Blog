@@ -1,0 +1,28 @@
+.salvar{
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(121, 226, 121);
+    color: black;
+    font-size: 1.2em;
+    padding: 7px;
+    cursor: pointer;
+}
+.bio{
+    border: none;
+    outline: none;
+    background-color: none;
+    resize: none;
+    width: 70%;
+    font-weight: bold;
+    padding: 5px;
+}
+.bio:hover{
+    border: none;
+    outline: none;
+    background-color: none;
+}
+.bio:focus{
+    border: none;
+    outline: none;
+    background-color: none;
+}

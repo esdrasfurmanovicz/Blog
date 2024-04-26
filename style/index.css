@@ -1,0 +1,21 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+:root{
+    --fontePadrao: Arial, Helvetica, sans-serif;
+
+    --cor1: #412B4B;
+    --cor2: #220330;
+    --cor3: #B893C9;
+    --cor4: #D289F4;
+    --pretoPadrao: rgb(14, 13, 13);
+}
+body {
+    font-family: var(--fontePadrao);
+}
+a{
+    text-decoration: none;
+    color: black;
+}

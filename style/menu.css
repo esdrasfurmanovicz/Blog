@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap');
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: var(--cor2);
+    color: white;
+}
+.lep{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+nav > div{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    
+}
+h1{
+    font-family: "Lugrasimo", cursive;
+}
+h1 a{
+    color: white;
+}
+.sair{
+    color: white;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.sair:hover{
+    color: red;
+}
+.perfil img{
+    width: 35px;
+}
+.perfil{
+    margin-right: 10px;
+}

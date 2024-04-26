@@ -1,7 +1,7 @@
 <?php
 
 class Auth{
-    private static $expires_time = 1200;
+    private static $expires_time = 60000;
     public static function login($email, $senha){
         $usuario = UsuarioRepository::getByEmail($email);
         if($usuario){

@@ -23,11 +23,11 @@
     }
 
     public function getPerfil(){
-        return $this->id;
+        return $this->perfil;
     }
 
     public function setPerfil($perfil){
-        $this->id = $perfil;
+        $this->perfil = $perfil;
     }
 
     public function getUsername(){

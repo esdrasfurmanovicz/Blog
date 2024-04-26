@@ -40,7 +40,7 @@ body {
 .areaConvert{
     width: 35%;
     height: 60vh;
-    background-color: rgb(48, 7, 60);
+    background-color: var(--cor1);
 }
 h1 {
     text-align: center;
