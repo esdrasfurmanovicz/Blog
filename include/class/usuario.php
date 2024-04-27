@@ -50,8 +50,12 @@
         return $this->senha;
     }
 
-    public function setSenha($senha){
-        $this->senha = $senha;
+    public function setSenha($senha, $is_hashed = false){
+        if($is_hashed){
+            $this->senha = $senha;
+        } else{
+            $this->senha = hash("sha256",$senha);
+        }
     }
 
     public function getNome(){
@@ -70,8 +74,9 @@
         $this->sobrenome = $sobrenome;
     }
 
-    public function getDataNascimento(){
-        return $this->data_nascimento;
+    public function getDataNascimento($format = 'Y-m-d'){
+        $datetime = DateTime::createFromFormat('Y-m-d', $this->data_nascimento);
+        return $datetime->format($format);
     }
 
     public function setDataNascimento($data_nascimento){

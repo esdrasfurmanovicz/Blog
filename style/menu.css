@@ -6,6 +6,7 @@ header{
     padding: 10px 20px;
     background-color: var(--cor2);
     color: white;
+    text-decoration: none;
 }
 .lep{
     display: flex;
@@ -23,6 +24,11 @@ h1{
 }
 h1 a{
     color: white;
+    text-decoration: none;
+}
+h1 a:hover{
+    color: white;
+    text-decoration: none;
 }
 .sair{
     color: white;

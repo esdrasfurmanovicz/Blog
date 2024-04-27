@@ -9,20 +9,24 @@ main{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 35%;
+    min-width: 35%;
 }
 .ftName{
     display: flex;
     align-items: center;
     gap: 20px;
 }
-.nome{
+.nome, .sobrenome{
     font-size: 2em;
     font-weight: bold;
 }
+
 .editarSvg{
     width: 25px;
     color: rgb(34, 34, 34);
+}
+.addSvg{
+    width: 25px;
 }
 .fotoPerfil{
     width: 70px;
@@ -38,3 +42,10 @@ main{
     font-size: 1.2em;
     width: 70%;
 }
+
+.username{
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+

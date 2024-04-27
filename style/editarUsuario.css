@@ -9,20 +9,103 @@
 }
 .bio{
     border: none;
+    border-left: 2px solid gray;
+    border-right: 2px solid gray;
+    border-radius: 10px;
     outline: none;
     background-color: none;
     resize: none;
     width: 70%;
     font-weight: bold;
     padding: 5px;
+    font-size: 1em;
 }
 .bio:hover{
     border: none;
+    border-left: 2px solid gray;
+    border-right: 2px solid gray;
+    border-radius: 10px;
     outline: none;
     background-color: none;
 }
 .bio:focus{
     border: none;
+    border-left: 2px solid gray;
+    border-right: 2px solid gray;
+    border-radius: 10px;
     outline: none;
     background-color: none;
+}
+
+.usN input, .usN select, .outrosCampos input, .outrosCampos button{
+    display: block;
+    margin-top: 20px;
+}
+
+input, input:focus, input:hover{
+    border: none;
+    border-bottom: 2px solid gray;
+    border-radius: 0px 0px 3px 3px;
+    font-size: 1.2em;
+    outline: none;
+}
+
+select, .altSenha{
+    padding: 7px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+.altSenha a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.altSenha:hover a{
+    color: rgb(255, 123, 0);
+}
+main{
+    margin-bottom: 50px;
+}
+
+.voltar{
+    padding: 7px;
+    border-radius: 5px;
+    background-color: gray;
+    border: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-right: 20px;
+}
+
+.voltar a{
+    color: white;
+    text-decoration: none;
+}
+label{
+    display: block;
+    margin-top: 20px;
+}
+.senha, .senha:hover, .senha:focus{
+    border: 1px solid rgb(20, 20, 20);
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 1.3em;
+    padding: 5px;
+}
+.pass{
+    margin-bottom: 20px;
+}
+
+.form{
+
+    margin: auto;
+    margin-top: 50px;
+    width: 70%;
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 10px;
 }

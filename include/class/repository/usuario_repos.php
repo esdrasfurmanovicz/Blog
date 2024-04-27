@@ -96,11 +96,9 @@ class UsuarioRepository implements Repository{
     }
     public static function update($obj){
         $db = DB::getInstance();
-        $sql = "UPDATE usuario SET perfil = :perfil, nome = :nome, sobrenome = :sobrenome, username = :username, senha = :senha, email = :email, biografia = :biografia, foto_perfil = :foto_perfil, data_alteracao = :data_alteracao, data_nascimento = :data_nascimento WHERE id = :id";
+        $sql = "UPDATE usuario SET perfil = :perfil, username = :username, senha = :senha, email = :email, biografia = :biografia, foto_perfil = :foto_perfil, data_alteracao = :data_alteracao, data_nascimento = :data_nascimento WHERE id = :id";
         $query = $db->prepare($sql);
         $query->bindValue(":perfil",$obj->getPerfil()); 
-        $query->bindValue(":nome",$obj->getNome()); 
-        $query->bindValue(":sobrenome",$obj->getSobrenome());
         $query->bindValue(":username",$obj->getUsername());
         $query->bindValue(":senha",$obj->getSenha());
         $query->bindValue(":email",$obj->getEmail());
