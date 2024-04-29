@@ -121,8 +121,4 @@
         }
         return false;
     }
-    public function decrypted(){
-        $senha = $this->senha;
-        
-    }
 }
