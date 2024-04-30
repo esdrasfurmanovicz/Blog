@@ -58,7 +58,7 @@ class UsuarioRepository implements Repository{
             $usuario->setNome($row->nome);
             $usuario->setSobrenome($row->sobrenome);
             $usuario->setEmail($row->email);
-            $usuario->setSenha($row->senha);
+            $usuario->setSenha($row->senha,true);
             $usuario->setDataNascimento($row->data_nascimento);
             $usuario->setBiografia($row->biografia);
             $usuario->setFotoPerfil($row->foto_perfil);
@@ -84,7 +84,7 @@ class UsuarioRepository implements Repository{
             $usuario->setNome($row->nome);
             $usuario->setSobrenome($row->sobrenome);
             $usuario->setEmail($row->email);
-            $usuario->setSenha($row->senha);
+            $usuario->setSenha($row->senha,true);
             $usuario->setDataNascimento($row->data_nascimento);
             $usuario->setBiografia($row->biografia);
             $usuario->setFotoPerfil($row->foto_perfil);
