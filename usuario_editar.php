@@ -31,7 +31,7 @@ if($_GET['id'] == '' || $_GET['id'] == null){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Usuario</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    
     <link rel="stylesheet" href="style/index.css">
     <link rel="stylesheet" href="style/menu.css">
     <link rel="stylesheet" href="style/perfil.css">
@@ -39,13 +39,31 @@ if($_GET['id'] == '' || $_GET['id'] == null){
 </head>
 <body>
     <?php include_once("include/menu.php") ?>
+    
     <main>
         
         <form action="usuario_editar_post.php" method="POST">
             <input type="text" name="id" id="id" hidden value="<?php echo $user->getId() ?>">
+            
+            <div class="popUp">
+            <div id="pu">
+                <p>Apenas imagens png e jpg</p>
+                <input type="file" name="fotoPerfil" id="fotoPerfil" accept="image/png,jpg" class="form-control" >
+                <div id="ta">
+                    <button id="cancelar">Cancelar</button>
+                    <button id="salvar">Salvar</button>
+                </div>
+            </div>
+        </div>
             <div class="hedPerfil">
                 <div class="ftName">
-                    <img src="img/perfil.png" alt="" class="fotoPerfil">
+                    <?php if($user->getFotoPerfil() != null){
+                        $codigo_base64 = $user->getFotoPerfil();
+                        $imagem = base64_decode($codigo_base64);
+                        echo '<img src="data:image/png;base64,' . $codigo_base64 . '" alt="Minha Imagem"   class="img-thumbnail  justify-content-center align-items-center logo"  >';
+                    }else { ?>
+                        <img src="img/perfil.png" alt="" onclick="popUpFoto()" class="fotoPerfil">
+                    <?php } ?>
                     <p class="nome"><?php echo $user->getNome() ?></p>
                     <p class="sobrenome"><?php echo $user->getSobrenome() ?></p>
                 </div>
@@ -89,7 +107,24 @@ if($_GET['id'] == '' || $_GET['id'] == null){
         $('.nascimento').mask('00/00/0000');
         
     })
+    function popUpFoto(){
+      popUp = document.querySelector(".popUp")
+      popUp.style.display="flex"
+      const cancelar = document.querySelector("#cancelar")
+      const input = document.querySelector("#fotoPerfil")
+      cancelar.addEventListener("click", function(){
+            input.value = null
+          closePopup()
+      })
+      const salvar = document.querySelector("#salvar")
+      salvar.addEventListener("click", function(){
+          closePopup()
+      }) 
+    }
 
+    function closePopup(){
+        popUp.style.display="none"
+    }
 </script>
 </body>
 </html>

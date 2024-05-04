@@ -18,7 +18,7 @@ if($_POST["id"] == "" || $_POST["id"] == null){
 }
 $usuario = UsuarioRepository::get($_POST["id"]);
 if(!$usuario){
-    header("location: logout.php");
+    header("location: foto_perfilut.php");
     exit();
 }
 
@@ -49,7 +49,14 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 $datetime = DateTime::createFromFormat('d/m/Y', $_POST["dataNascimento"]);
 $dateFormatted = $datetime->format('Y-m-d');
 date_default_timezone_set('America/Sao_Paulo');
-
+if(isset($_FILES['fotoPerfil'])) {
+    $caminho_foto_perfil = $_FILES['foto_perfil']['tmp_name'];
+    $conteudo_foto_perfil = file_get_contents($caminho_foto_perfil);
+    $img_base64 = base64_encode($conteudo_foto_perfil);
+    if(!empty($img_base64)) {  
+        $usuario->setFotoPerfil($img_base64);
+    }
+}
 $usuario->setPerfil($_POST['perfil']);
 $usuario->setUsername($_POST['username']);
 $usuario->setBiografia($_POST['biografia']);

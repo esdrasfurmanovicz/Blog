@@ -21,6 +21,29 @@ class PostagemRepository implements Repository{
         }
         return $list;
     }
+
+    public static function listAllByAutor($id){
+        $db = DB::getInstance();
+        $sql = "SELECT * FROM postagem where id = :id";
+        $query = $db->prepare($sql);
+        $query->bindValue(":id", $id);
+        $query->execute();
+
+        $list = array(); 
+        foreach($query->fetchAll(PDO::FETCH_OBJ) as  $row){
+            $postagem = new postagem;
+            $postagem->setId($row->id);
+            $postagem->setTitulo($row->titulo);
+            $postagem->setConteudo($row->conteudo);
+            $postagem->setKeywords($row->keywords);
+            $postagem->setInclusaoUsuarioId($row->inclusao_usuario_id);
+            $postagem->setAlteracaoUsuarioId($row->alteracao_usuario_id);
+            $postagem->setDataInclusao($row->data_inclusao);
+            $postagem->setDataAlteracao($row->data_alteracao);
+            $list[] = $postagem;
+        }
+        return $list;
+    }
     public static function insert($obj){
         $db = DB::getInstance() ;//cria uma instancia da classe db (conexão com o bd).]
         $sql = "INSERT INTO postagem (titulo, conteudo, keywords, inclusao_usuario_id, data_inclusao) VALUES(:titulo, :conteudo, :keywords, :inclusao_usuario_id , :data_inclusao)";

@@ -57,6 +57,20 @@ $usuario = UsuarioRepository::get($_GET['id'])
                         <a href="novo_postagem.php?id=<?php echo $userLogado->getId(); ?>"><img src="svg/add.svg" alt="Adicionar Postagem" class="addSvg"></a>
                     <?php } ?>
                 </div>
+                <div class="bodyPost">
+                    <?php foreach(PostagemRepository::listAllByAutor($usuario->getId()) as $postagem){ ?>
+                        
+                        <div class="postFA">
+                        <div class="userIndentify">
+                            <div class="img"></div>
+                            <div class="nome"><p><?php echo $usuario->getNome()?></p></div>
+                        </div>
+                        <h3><?php echo $postagem->getTitulo() ?></h3>
+                        </div>
+
+                    <?php } ?>
+                    
+                </div>
         </section>
     </main>
 </body>
