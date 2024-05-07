@@ -18,11 +18,11 @@ $usuario = UsuarioRepository::get($_GET['id'])
     <link rel="stylesheet" href="style/menu.css">
     <link rel="stylesheet" href="style/perfil.css">
     <style> 
-        <?php if($usuario->getPerfil() === "adm") { ?> 
+        <?php if($usuario->getPerfil() == "adm") { ?> 
             .username{ 
                 background: -webkit-linear-gradient(#5b0085, #aa02f8); 
                 -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
+                -webkit-text-fill-color: transparent; 
             }
         <?php } ?> 
     </style>
@@ -36,7 +36,15 @@ $usuario = UsuarioRepository::get($_GET['id'])
     <main>
         <section class="hedPerfil">
             <div class="ftName">
-                <img src="img/perfil.png" alt="" class="fotoPerfil">
+            <div class="foto">
+                        <?php if($usuario->getFotoPerfil() != null){
+                            $codigo_base64 = $usuario->getFotoPerfil();
+                            $imagem = base64_decode($codigo_base64);
+                            echo '<img onclick="popUpFoto()" src="data:image/png;base64,' . $codigo_base64 . '" alt="Minha Imagem"   class="img-thumbnail  justify-content-center align-items-center ftPerfil"  >';
+                        }else { ?>
+                            <img src="img/perfil.png" alt="" class="fotoPerfil">
+                        <?php } ?>
+                    </div>
                 <p class="nome"><?php echo $usuario->getNome() ?></p>
                 <p class="sobrenome"><?php echo $usuario->getSobrenome() ?></p>
             </div>

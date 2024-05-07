@@ -16,6 +16,13 @@ main{
     align-items: center;
     gap: 20px;
 }
+.ftPerfil{
+    width: 100%;
+    max-width: 100px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 50%;
+}
 .nome, .sobrenome{
     font-size: 2em;
     font-weight: bold;

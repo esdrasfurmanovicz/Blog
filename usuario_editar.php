@@ -38,34 +38,39 @@ if($_GET['id'] == '' || $_GET['id'] == null){
     <link rel="stylesheet" href="style/editarUsuario.css">
 </head>
 <body>
-    <?php include_once("include/menu.php") ?>
-    
-    <main>
-        
-        <form action="usuario_editar_post.php" method="POST">
-            <input type="text" name="id" id="id" hidden value="<?php echo $user->getId() ?>">
-            
-            <div class="popUp">
+    <form action="usuario_editar_post.php" method="POST" enctype="multipart/form-data">
+        <input type="text" name="id" id="id" hidden value="<?php echo $user->getId() ?>">
+        <input type="text" name="form" id="form" hidden value="1">
+        <div class="popUp">
             <div id="pu">
                 <p>Apenas imagens png e jpg</p>
                 <input type="file" name="fotoPerfil" id="fotoPerfil" accept="image/png,jpg" class="form-control" >
                 <div id="ta">
-                    <button id="cancelar">Cancelar</button>
-                    <button id="salvar">Salvar</button>
+                    <a id="cancelar">Cancelar</a>
+                    <button type="submit" id="salvar">Salvar</button>
                 </div>
             </div>
         </div>
+    </form>
+    <?php include_once("include/menu.php") ?>
+    <main>
+        
+        <form action="usuario_editar_post.php" method="POST">
+            <input type="text" name="id" id="id" hidden value="<?php echo $user->getId() ?>">
+            <input type="text" name="form" id="form" hidden value="2">
             <div class="hedPerfil">
                 <div class="ftName">
-                    <?php if($user->getFotoPerfil() != null){
-                        $codigo_base64 = $user->getFotoPerfil();
-                        $imagem = base64_decode($codigo_base64);
-                        echo '<img src="data:image/png;base64,' . $codigo_base64 . '" alt="Minha Imagem"   class="img-thumbnail  justify-content-center align-items-center logo"  >';
-                    }else { ?>
-                        <img src="img/perfil.png" alt="" onclick="popUpFoto()" class="fotoPerfil">
-                    <?php } ?>
-                    <p class="nome"><?php echo $user->getNome() ?></p>
-                    <p class="sobrenome"><?php echo $user->getSobrenome() ?></p>
+                    <div class="foto">
+                        <?php if($user->getFotoPerfil() != null){
+                            $codigo_base64 = $user->getFotoPerfil();
+                            $imagem = base64_decode($codigo_base64);
+                            echo '<img onclick="popUpFoto()" src="data:image/png;base64,' . $codigo_base64 . '" alt="Minha Imagem"   class="img-thumbnail  justify-content-center align-items-center ftPerfil"  >';
+                        }else { ?>
+                            <img src="img/perfil.png" alt="" class="fotoPerfil">
+                        <?php } ?>
+                    </div>
+                    <p class="nome"><?php echo $user->getNome()?></p>
+                        <p class="sobrenome"><?php echo $user->getSobrenome()?></p>
                 </div>
                 <div>
                     <button class="voltar"><a href="usuario_perfil.php?id=<?php echo $user->getId() ?>">Voltar</a></button>
@@ -75,8 +80,18 @@ if($_GET['id'] == '' || $_GET['id'] == null){
                 </div>
             </div>
             <div class="usN">
-                <input type="text" name="username" required id="username" value="<?php echo $user->getUsername(); ?>">
-                
+                <div class="dados">
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" required id="username" value="<?php echo $user->getUsername(); ?>">
+                </div>
+                <div class="dados">
+                    <label for="nome">Nome:</label>
+                    <input type="text" name="nome" id="nome" required value="<?php echo $user->getNome(); ?>" maxlength="100">
+                </div>
+                    <div class="dados">
+                        <label for="sobrenome">Sobrenome:</label>
+                        <input type="text" name="sobrenome" id="sobrenome" required value="<?php echo $user->getSobrenome(); ?>" maxlength="100">
+                    </div>
                 <?php if($user->getPerfil() === "adm" && $user->getId() != $userLogado->getId()){ ?>
                     <select name="perfil" id="perfil">
                         <option value="adm">Administrador</option>
@@ -91,9 +106,15 @@ if($_GET['id'] == '' || $_GET['id'] == null){
                 <textarea name="biografia" class="bio" rows="8" maxlength="500"><?php echo $user->getBiografia() ?></textarea>
             </div>
             <div class="outrosCampos">
-                <input type="email" name="email" id="email" required value="<?php echo $user->getEmail(); ?>">
+                <div class="dados">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" required value="<?php echo $user->getEmail(); ?>">
+                </div>
                 <button class="altSenha"><a href="usuario_alterar_senha.php?id=<?php echo $user->getId() ?>">Alterar Senha</a></button>
-                <input type="text" name="dataNascimento" id="datepicker" required class="nascimento" value="<?php echo $user->getDataNascimento('d/m/Y'); ?>">
+                <div class="dados">
+                    <label for="nascimento">Data de Nascimento:</label>
+                    <input type="text" name="dataNascimento" id="datepicker" required class="nascimento" value="<?php echo $user->getDataNascimento('d/m/Y'); ?>">
+                </div>
             </div>
         </form>
     </main>
@@ -113,18 +134,14 @@ if($_GET['id'] == '' || $_GET['id'] == null){
       const cancelar = document.querySelector("#cancelar")
       const input = document.querySelector("#fotoPerfil")
       cancelar.addEventListener("click", function(){
-            input.value = null
           closePopup()
       })
-      const salvar = document.querySelector("#salvar")
-      salvar.addEventListener("click", function(){
-          closePopup()
-      }) 
     }
 
     function closePopup(){
         popUp.style.display="none"
     }
+
 </script>
 </body>
 </html>
