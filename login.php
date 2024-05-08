@@ -19,7 +19,7 @@
         <div class="container">
             <div class="areaLogin">
                 <div>
-                    <h1>Bem vindo ao Blog semNome</h1>
+                    <h1>Bem vindo ao Neriety</h1>
                     <form action="logar.php" method="post">
                         <div class="input-group">
                             <label for="email">E-mail: </label>
@@ -29,7 +29,8 @@
                             <label for="senha">Senha: </label>
                             <input type="text" id="senha" name="senha" required>
                         </div>
-                        <button type="submit" class="btn">Enviar</button>
+                        <button type="submit" class="btn">Entrar</button>
+                        <p class="textCad">Ainda não tem uma conta? <strong class="strCad">Cadastre-se</strong></p>
                     </form>
                 </div>
             </div>
