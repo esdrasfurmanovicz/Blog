@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap');
 *{
     padding: 0px;
     margin: 0px;
@@ -5,7 +6,7 @@
 }
 :root{
     --fontePadrao: Arial, Helvetica, sans-serif;
-
+    --fonte-destaque: "Lugrasimo", cursive;
     --cor1: #412B4B;
     --cor2: #220330;
     --cor3: #B893C9;

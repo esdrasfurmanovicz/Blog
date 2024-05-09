@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap');
+
 header{
     display: flex;
     align-items: center;
@@ -20,7 +20,7 @@ nav > div{
     
 }
 h1{
-    font-family: "Lugrasimo", cursive;
+    font-family: var(--fonte-destaque);
 }
 h1 a{
     color: white;
