@@ -1,10 +1,5 @@
 <?php
 include_once('include/factory.php');
-
-if (!Auth::isAuthenticated()) {
-    header("Location: login.php");
-    exit();
-}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

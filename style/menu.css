@@ -30,7 +30,7 @@ h1 a:hover{
     color: white;
     text-decoration: none;
 }
-.sair{
+.sair, .entrar{
     color: white;
     cursor: pointer;
     font-size: 1.2em;
@@ -39,6 +39,9 @@ h1 a:hover{
 }
 .sair:hover{
     color: red;
+}
+.entrar:hover{
+    color: rgb(19, 139, 0);
 }
 .perfil img{
     width: 35px;

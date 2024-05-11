@@ -66,7 +66,7 @@ if($_GET['id'] == '' || $_GET['id'] == null){
                             $imagem = base64_decode($codigo_base64);
                             echo '<img onclick="popUpFoto()" src="data:image/png;base64,' . $codigo_base64 . '" alt="Minha Imagem"   class="img-thumbnail  justify-content-center align-items-center ftPerfil"  >';
                         }else { ?>
-                            <img src="img/perfil.png" alt="" class="fotoPerfil">
+                            <img src="img/perfil.png" onclick="popUpFoto()" alt="" class="fotoPerfil">
                         <?php } ?>
                     </div>
                     <p class="nome"><?php echo $user->getNome()?></p>
