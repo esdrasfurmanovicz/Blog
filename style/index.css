@@ -1,12 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nova+Mono&display=swap');
+
 *{
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
 }
 :root{
-    --fontePadrao: Arial, Helvetica, sans-serif;
-    --fonte-destaque: "Lugrasimo", cursive;
+    --fonte-padrao: Arial, Helvetica, sans-serif;
+    --fonte-destaque: "Nova Mono", monospace;
     --cor1: #412B4B;
     --cor2: #220330;
     --cor3: #B893C9;
@@ -14,7 +15,7 @@
     --pretoPadrao: rgb(14, 13, 13);
 }
 body {
-    font-family: var(--fontePadrao);
+    font-family: var(--fonte-padrao);
 }
 a{
     text-decoration: none;
