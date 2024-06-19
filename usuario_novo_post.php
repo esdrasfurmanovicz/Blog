@@ -1,15 +1,13 @@
 <?php
 include_once('include/factory.php');
 
-if (!Auth::isAuthenticated()) {
-    header("Location: login.php");
-    exit();
-}
-
-$user = Auth::getUser();
 
 $email = $_POST["email"];
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    header("Location: login.php");
+    exit();
+}
+if(UsuarioRepository::verifyUsername($_POST["username"]) > 0){
     header("Location: login.php");
     exit();
 }

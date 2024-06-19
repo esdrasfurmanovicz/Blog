@@ -5,6 +5,7 @@ if (Auth::isAuthenticated()) {
     exit();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -20,9 +21,9 @@ if (Auth::isAuthenticated()) {
     <div class="cadDiv">
         <div class="cadastro">
             <span id="close">X</span>
-            <form action="usuario_novo_post" method="post">
+            <form action="usuario_novo_post.php" method="post">
                 <h1>Cadastre-se</h1>
-                <input type="text" name="username" id="username" placeholder="Nome de Usuario" required>
+                <input type="text" name="username" id="username" placeholder="Nome de Usuario" required> 
                 
                 <div class="dobleInput">
                     <input type="text" name="email" idemail placeholder="Email" required>
@@ -110,12 +111,6 @@ if (Auth::isAuthenticated()) {
         }
         $(document).ready(function(){
             $('#dataNascimento').mask('00/00/0000');
-        })
-        const username =document.querySelector('#username')
-        username.addEventListener('change', function(){
-            const aviso = document.querySelector('#aviso')
-            /* não terminado */
-            window.alert('aviso')
         })
     </script>
 </body>

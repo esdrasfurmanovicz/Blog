@@ -116,4 +116,16 @@ class UsuarioRepository implements Repository{
         $query->bindValue(":id",$id);
         $query->execute();
     }
+    public static function verifyUsername($username){
+        $db = DB::getInstance();
+
+        $sql = 'SELECT count(*) FROM usuario WHERE username = :username'; 
+
+        $query = $db->prepare($sql);
+        $query->bindValue(":username",$username);
+        $query->execute();
+
+        $row = $query->fetch(PDO::FETCH_ASSOC);
+        return $row["count(*)"];
+    }
 }
