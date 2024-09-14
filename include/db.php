@@ -9,6 +9,7 @@ class DB{
 
         self::$instance = new PDO("mysql:host=localhost;dbname=blog","root","");
         return self::$instance;
+        
     }
 }
 DB::getInstance();

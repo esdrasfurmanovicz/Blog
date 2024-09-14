@@ -70,10 +70,10 @@ if($_POST['form'] == 2){
         exit();
     }
 
-    $usuario->setPerfil($_POST['perfil']);
     $usuario->setUsername($_POST['username']);
     $usuario->setBiografia($_POST['biografia']);
     $usuario->setEmail($email);
+    $usuario->setPerfil('regular');
     $usuario->setDataNascimento($dateFormatted);
     $usuario->setDataAlteracao(date('Y-m-d H:i:s'));
 
@@ -83,4 +83,4 @@ if($_POST['form'] == 2){
 
 
 
-header("Location: usuario_editar.php?id=".$usuario->getId()."?aaaaaaaa");
+header("Location: usuario_editar.php?id=".$usuario->getId());

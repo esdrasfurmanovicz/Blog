@@ -43,17 +43,17 @@ if($_GET['id'] == '' || $_GET['id'] == null){
         <button class="voltar"><a href="usuario_editar.php?id=<?php echo $user->getId()?>">Voltar</a></button>
         <form action="usuario_alterar_senha_post.php" method="POST" class="form">
             <div class="pass">
-                <div>
-                    <label for="senha">Senha</label>
+                <div class="passBlock">
+                    <label for="senha">Senha</label> <br>
                     <input type="password" name="senha" id="senha" required class="senha">
                 </div>
-                <div>
-                    <label for="repSenha">Repita a Senha</label>
+                <div class="passBlock">
+                    <label for="repSenha">Repita a Senha</label> <br>
                     <input type="password" name="repSenha" id="repSenha" required class="senha">
                 </div>
             </div>
             <input type="text" name="id" id="id" hidden value="<?php echo $user->getId() ?>">
-            <button type="submit" class="salvar">Salvar</button>
+            <button type="submit" class="salvar" id="savePass">Salvar</button>
         </form>
     </main>
 </body>

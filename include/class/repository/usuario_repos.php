@@ -26,18 +26,18 @@ class UsuarioRepository implements Repository{
         return $list;
     }
     public static function insert($obj){
-        $db = DB::getInstance() ;//cria uma instancia da classe db (conexão com o bd).]
+        $db = DB::getInstance() ;
         $sql = "INSERT INTO usuario (perfil, nome, sobrenome, username, senha, email, data_inclusao, data_nascimento) VALUES(:perfil, :nome, :sobrenome, :username, :senha, :email, :data_inclusao, :data_nascimento)";
 
-        $query = $db->prepare($sql);//prepara a query para ser executada.
-        $query->bindValue(":perfil", $obj->getPerfil());
-        $query->bindValue(":nome", $obj->getNome());
-        $query->bindValue(":sobrenome", $obj->getSobrenome());
-        $query->bindValue(":username", $obj->getUsername());
+        $query = $db->prepare($sql);
+        $query->bindValue(":nome",$obj->getNome()); 
+        $query->bindValue(":sobrenome",$obj->getSobrenome()); 
+        $query->bindValue(":perfil",$obj->getPerfil()); 
+        $query->bindValue(":username",$obj->getUsername());
         $query->bindValue(":senha",$obj->getSenha());
-        $query->bindValue(":email", $obj->getEmail());
-        $query->bindValue(":data_nascimento", $obj->getDataNascimento());
-        $query->bindValue(":data_inclusao", $obj->getDataInclusao());
+        $query->bindValue(":email",$obj->getEmail());
+        $query->bindValue(":data_inclusao",$obj->getDataInclusao());
+        $query->bindValue(":data_nascimento",$obj->getDataNascimento());
         $query->execute();
         $id = $db->lastInsertId();//recupera o último Id inserido no BD.
         return $id;
